@@ -11,6 +11,7 @@ d3.tip = function() {
       offset    = d3_tip_offset,
       html      = d3_tip_html,
       node      = initNode(),
+      _node     = null,
       svg       = null,
       point     = null
 
@@ -205,7 +206,7 @@ d3.tip = function() {
   }
 
   function initNode() {
-    var node = d3.select(document.createElement('div'))
+    var node = _node || d3.select(document.createElement('div'));
     node.style({
       position: 'absolute',
       opacity: 0,
